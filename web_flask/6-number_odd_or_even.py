@@ -53,6 +53,16 @@ def numbersandevenness(n):
         evenness = 'odd'
     return render_template('6-number_odd_or_even.html', n=n,
                            evenness=evenness)
+@app.route('/number_odd_or_even/<int:n>')
+def number_odd_or_even(n):
+    if n % 2 == 0:
+        result = 'even'
+    else:
+        result = 'odd'
+    return f'Number: {n} is {result}'
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=5001)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port='5000')
